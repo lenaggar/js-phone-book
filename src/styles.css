@@ -1,0 +1,39 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  width: 80%;
+  max-width: 600px;
+  margin: 0 auto;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+form {
+  margin-left: 30px;
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+input {
+  /* margin-left: 25px; */
+}
+
+input[type="submit"] {
+  margin: 0;
+  padding: 5px 10px;
+}
+
+.meta {
+  color: #888;
+  font-size: 0.8em;
+}
+
+pre {
+  border-radius: 5px;
+  background-color: #ddd;
+  padding: 20px;
+}

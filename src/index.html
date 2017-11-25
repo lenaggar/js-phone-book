@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Alpha Phone-book</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+
+  <header>
+    <h1>Alpha Phone-book App</h1>
+  </header>
+
+  <main>
+
+    <section id="add-contact">
+
+      <h3>1> Add</h3>
+
+      <form>
+        <label>Name:
+          <input id="name" type="text" maxlength="100" required>
+        </label>
+        <label>Phone number:
+          <span class="meta"> valid pattern &#x2192; xx-xxx-xxxx</span>
+          <input id="phone" type="tel" pattern="^\d{2}-\d{3}-\d{4}$" required>
+        </label>
+        <label>Email address:
+          <input id="email" type="email" required>
+        </label>
+        <input type="submit" value="Add">
+      </form>
+
+    </section>
+
+    <hr>
+
+    <section id="remove-contact">
+
+      <h3>2> Remove</h3>
+
+      <form>
+        <label>Contact id number:
+          <input id="contact-id" type="text" required>
+        </label>
+        <input type="submit" value="Remove">
+      </form>
+
+    </section>
+
+    <hr>
+
+    <section id="search-contacts">
+
+      <h3>3> Search</h3>
+
+      <form>
+        <label>Query:
+          <input id="query" type="text">
+        </label>
+        <input type="submit" value="Search">
+        <pre id="search-results">
+        </pre>
+      </form>
+
+    </section>
+
+    <hr>
+
+    <section id="list-contacts">
+
+      <h3>4> List</h3>
+
+      <form>
+        <label>Number of contacts per page:
+          <input id="contacts-per-page" type="number" min="1" required>
+        </label>
+        <label>Page number:
+          <input id="page" type="number" min="0" required>
+        </label>
+        <input type="submit" value="List" />
+        <pre id="list-results">
+        </pre>
+      </form>
+
+    </section>
+  </main>
+
+  <script src="./scripts.js"></script>
+  <script src="./ui_scripts.js"></script>
+</body>
+
+</html>
