@@ -1,9 +1,0 @@
-{
-  "name": "js-phone-book",
-  "version": "1.0.0",
-  "description": "simple data-structure for a phonebook in JavaScript",
-  "main": "index.js",
-  "repository": "https://github.com/lenaggar/js-phone-book.git",
-  "author": "Mahmoud <naggar218@gmail.com>",
-  "license": "MIT"
-}
