@@ -22,17 +22,15 @@
       email: contactEmail.value
     };
 
-    console.log(myAwesomePhoneBook.add(newContact));
+    if (myAwesomePhoneBook.add(newContact)) {
+      alert("contact added successfully to phone-book");
 
-    // if (myAwesomePhoneBook.add(newContact)) {
-    //   alert("contact added successfully to phone-book");
-
-    //   e.target.reset();
-    // } else {
-    //   alert(
-    //     "phone-book is full, can't add any more contacts.. remove some if you want to add more!"
-    //   );
-    // }
+      e.target.reset();
+    } else {
+      alert(
+        "phone-book is full, can't add any more contacts.. remove some if you want to add more!"
+      );
+    }
   });
 
   removeContactForm.addEventListener("submit", function handleRemoveSubmit(e) {
