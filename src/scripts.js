@@ -9,10 +9,11 @@ window.myAwesomePhoneBook = (function initPhoneBook() {
 
   PhoneBook.prototype = {
     add: function add(contact) {
+      if (this.indicesList.length >= 10000) return false;
       /*
-        the following line is just to generate a temp id
-        ideally it would use a proper GUID here
-      */
+          the following line is just to generate a temp id
+          ideally it would use a proper GUID here
+        */
       const id = Date.now();
       const db = this.lookupDB;
       const list = this.indicesList;
@@ -36,9 +37,7 @@ window.myAwesomePhoneBook = (function initPhoneBook() {
         const iString = contact.name.toLowerCase();
         const jString = db[list[j]].name.toLowerCase();
 
-        if (!(iString < jString)) {
-          return;
-        }
+        if (iString >= jString) break;
 
         const temp = list[i];
         list[i] = list[j];
@@ -46,6 +45,8 @@ window.myAwesomePhoneBook = (function initPhoneBook() {
 
         index--;
       }
+
+      return true;
     },
 
     remove: function remove(id) {
@@ -64,17 +65,13 @@ window.myAwesomePhoneBook = (function initPhoneBook() {
     },
 
     search: function search(query) {
-      if (isNaN(+query.replace("-", "").trim())) {
-        const db = this.lookupDB;
-        const list = this.indicesList;
+      const db = this.lookupDB;
+      const list = this.indicesList;
+      const searchSrc = isNaN(+query.replace("-", "").trim())
+        ? "name"
+        : "phone";
 
-        return list.map(i => db[i]).filter(obj => obj.name.includes(query));
-      } else {
-        const db = this.lookupDB;
-        const list = this.indicesList;
-
-        return list.map(i => db[i]).filter(obj => obj.phone.includes(query));
-      }
+      return list.map(i => db[i]).filter(obj => obj[searchSrc].includes(query));
     },
 
     list: function list(contactsPerPage, page) {

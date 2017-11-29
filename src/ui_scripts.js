@@ -22,34 +22,28 @@
       email: contactEmail.value
     };
 
-    myAwesomePhoneBook.add(newContact);
+    console.log(myAwesomePhoneBook.add(newContact));
 
-    alert("contact added successfully");
+    // if (myAwesomePhoneBook.add(newContact)) {
+    //   alert("contact added successfully to phone-book");
 
-    console.log(
-      myAwesomePhoneBook.indicesList.map(
-        i => myAwesomePhoneBook.lookupDB[i].name
-      )
-    );
-
-    e.target.reset();
+    //   e.target.reset();
+    // } else {
+    //   alert(
+    //     "phone-book is full, can't add any more contacts.. remove some if you want to add more!"
+    //   );
+    // }
   });
 
   removeContactForm.addEventListener("submit", function handleRemoveSubmit(e) {
     e.preventDefault();
 
     if (myAwesomePhoneBook.remove(id.value)) {
-      alert("contact deleted successfully");
-
-      console.log(
-        myAwesomePhoneBook.indicesList.map(
-          i => myAwesomePhoneBook.lookupDB[i].name
-        )
-      );
+      alert("contact deleted successfully from phone-book");
 
       e.target.reset();
     } else {
-      alert("this id doesn't exist in the phone book!");
+      alert("this id doesn't exist in the phone-book!");
     }
   });
 
